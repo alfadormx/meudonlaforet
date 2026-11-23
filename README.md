@@ -59,7 +59,7 @@ There is no public address yet, so `EMAIL_HREF` in `src/site.ts` is `'#'`. While
 The library is installed from a git tag:
 
 ```json
-"@alfadormx/blocks": "github:alfadormx/astro.blocks#v0.1.0&path:packages/blocks"
+"@alfadormx/blocks": "github:alfadormx/astro.blocks#v0.1.1&path:packages/blocks"
 ```
 
 Change the tag, run `pnpm install`, and read the library's `packages/blocks/CHANGELOG.md` for every version in between first.
