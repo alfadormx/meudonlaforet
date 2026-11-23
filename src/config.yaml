@@ -48,7 +48,12 @@ metadata:
     colorScheme: 'only light'
 
   icons:
-    favicon: '/favicon.svg'
+    favicon: '/favicon.ico'
+    apple: '/apple-touch-icon.png'
+    icon32: '/favicon-32x32.png'
+    icon16: '/favicon-16x16.png'
+    maskIcon: '/safari-pinned-tab.svg'
+    maskIconColor: '#c87a5e'
 
   openGraph:
     site_name: 'Duplex meublé 66,5 m² - Meudon-la-Forêt'
@@ -56,6 +61,17 @@ metadata:
     localeAlternate: ['en_GB']
     type: 'website'
     description: 'Duplex meublé 66,5 m² — 2 chambres, 2 salles de bain, jardin, parking — Loyer 1500 €/mois CC.'
+    images:
+      - url: '/og-image.jpg'
+        width: 1200
+        height: 630
+        alt: 'Duplex meublé 66,5 m² à Meudon-la-Forêt — 1 500 €/mois charges comprises'
+        type: 'image/jpeg'
+
+  twitter:
+    cardType: 'summary_large_image'
+    image: '/twitter-image.jpg'
+    imageAlt: 'Duplex meublé 66,5 m² à Meudon-la-Forêt — 1 500 €/mois charges comprises'
 
   localized:
     en:
