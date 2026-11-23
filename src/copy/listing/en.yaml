@@ -1,0 +1,251 @@
+pageTitle: 'Furnished duplex 66.5 m²'
+
+nav:
+  brand: 'Meudon-la-Forêt'
+  menuLabel: 'Open the menu'
+  apply: 'Apply'
+  anchors:
+    caracteristiques: 'Features'
+    prix: 'Price details'
+    photos: 'Photos'
+    plan: 'Floor plan'
+    carte: 'Map'
+    candidature: 'Viewing & Application'
+    faq: 'FAQ'
+
+intro:
+  chips:
+    rental: 'For rent'
+    type: 'Apartment'
+    furnished: 'Furnished'
+    available: 'Available April 2026'
+  title: 'Furnished duplex'
+  subtitle: '3 rooms, 66 m² · Meudon 92360 · Meudon-la-Forêt neighbourhood'
+  priceLabel: 'Monthly rent'
+  price: '€1,500'
+  priceNote: 'charges included – service charge advance'
+  imageAlt: 'Bright living room with dining area and a glass door opening onto the garden'
+
+facts:
+  surface:
+    label: 'Living area'
+    value: '66.5 m²'
+  rooms:
+    label: 'Rooms'
+    value: '3'
+  bedrooms:
+    label: 'Bedrooms'
+    value: '2'
+  bathrooms:
+    label: 'Bathrooms'
+    value: '2'
+  parking:
+    label: 'Parking spaces'
+    value: '1'
+  built:
+    label: 'Year built'
+    value: '2020'
+  energy:
+    label: 'Energy / GHG rating'
+    value: 'A / B'
+  floor:
+    label: 'Location'
+    value: 'Garden level'
+
+duplex:
+  tagline: 'The home'
+  title: 'The apartment'
+  subtitle: 'Furnished apartment - 66.5 m² duplex - Meudon-la-Forêt (Simone Veil eco-district)'
+  body: './description.en.md'
+  cta:
+    title: 'Interested in this duplex?'
+    subtitle: 'Send a complete application by email. Applications will be shortlisted before viewings.'
+    send: 'Send my application'
+    ask: 'Ask a question'
+
+details:
+  tagline: 'In detail'
+  title: 'Key information'
+  items:
+    type:
+      label: 'Property type'
+      value: 'Apartment'
+    furnished:
+      label: 'This property is'
+      value: 'Furnished'
+    available:
+      label: 'Available from'
+      value: 'April 2026'
+    charges:
+      label: 'Charges included'
+      value: 'Yes'
+    heatingType:
+      label: 'Heating type'
+      value: 'Shared'
+    heatingMode:
+      label: 'Heating source'
+      value: 'Gas'
+    exposure:
+      label: 'Facing'
+      value: 'North'
+    outdoor:
+      label: 'Outdoor space'
+      value: 'Terrace'
+    floor:
+      label: 'Floor'
+      value: '0'
+    floors:
+      label: 'Floors in the building'
+      value: '9'
+    lift:
+      label: 'Lift'
+      value: 'Yes'
+    features:
+      label: 'Features'
+      value: 'Recent build, Several toilets, Fitted kitchen, Open-plan kitchen, Bathtub, Intercom, Garage or parking space'
+
+price:
+  tagline: 'Budget'
+  title: 'Price details'
+  monthly:
+    title: 'Monthly'
+    rows:
+      rent:
+        label: 'Rent excluding charges'
+        note: 'Base rent'
+        amount: '€1,330 / month'
+      charges:
+        label: 'Service charges'
+        note: 'Monthly advance on charges'
+        amount: '€170 / month'
+      total:
+        label: 'Rent (charges included)'
+        note: 'Amount payable each month'
+        amount: '€1,500 per month'
+  other:
+    title: 'Other costs'
+    rows:
+      deposit:
+        label: 'Security deposit'
+        note: 'Two months’ rent excluding charges'
+        amount: '€2,660'
+      agency:
+        label: 'Agency fees'
+        note: 'Rented directly, no agency'
+        amount: '€0'
+
+photos:
+  tagline: 'Photo tour'
+  title: 'Photos'
+  tabs:
+    living:
+      label: 'Living room, kitchen & storage'
+      slides:
+        rdc_cuisine: 'Fitted open-plan kitchen'
+        rdc_salon: 'Bright living room opening directly onto the terrace and garden'
+        rdc_rangement: 'Ground-floor storage'
+    bedrooms:
+      label: 'Bedrooms'
+      slides:
+        etg_chprincipale_1: 'Upstairs main bedroom'
+        etg_chprincipale_2: 'Upstairs main bedroom (view 2)'
+        etg_chprincipale_vue: 'Garden view from the upstairs main bedroom'
+        etg_chenfant_1: 'Upstairs bedroom with bunk bed'
+        etg_chenfant_2: 'Upstairs bedroom with bunk bed (view 2)'
+        etg_chenfant_vue: 'Garden view from the upstairs bedroom with bunk bed'
+    bathrooms:
+      label: 'Bathrooms & laundry'
+      slides:
+        rdc_salledebain: 'Ground-floor shower room with walk-in shower'
+        etg_salledebain: 'Upstairs bathroom with bathtub'
+        etg_wc: 'Upstairs toilet'
+        etg_bouanderie: 'Upstairs laundry room'
+
+plan:
+  tagline: 'Layout'
+  title: 'Floor plan'
+  ground:
+    title: 'Ground floor'
+    alt: 'Apartment floor plan - Ground floor'
+  upper:
+    title: 'Upstairs'
+    alt: 'Apartment floor plan - Upstairs'
+
+map:
+  tagline: 'Neighbourhood'
+  title: 'Map'
+  intro: 'Set in the Place Simone Veil eco-district of Meudon-la-Forêt, in the recent Évidence residence, this furnished 66.5 m² garden-level duplex offers a modern, quiet and very practical place to live.'
+  mapTitle: 'Map of the Meudon-la-Forêt neighbourhood'
+  markerTitle: 'Évidence residence'
+  nearbyTitle: 'Nearby'
+  nearby:
+    shops:
+      title: 'Shops at the foot of the building'
+      content: 'Mini-market (Super U), bakery, UPCA sports centre'
+    green:
+      title: 'Green spaces nearby'
+      content: 'Meudon State Forest'
+    transport:
+      title: 'Public transport'
+      content: 'Tram line 6 (Meudon-la-Forêt, Georges Millandy), bus lines (179, 291)'
+    walk:
+      title: 'On foot'
+      content: 'IKEA Vélizy, Vélizy 2 shopping centre, schools, nurseries'
+
+apply:
+  tagline: 'Application'
+  title: 'Viewing & Application'
+  body: |
+    Please [send a complete application by email]({{email}}) (ID, proof of income and of employment status).\
+    Applications will be shortlisted before a first round of viewings is arranged.
+
+    **A guarantor may be requested depending on the strength of the application.**
+
+    To put together a complete application, please refer to the information on [service-public.fr — Rental application (Tenant section)](https://www.service-public.fr/particuliers/vosdroits/F1169) (in French).
+
+faq:
+  tagline: 'Frequently asked questions'
+  title: 'FAQ'
+  intro: 'More questions? [Feel free to contact us by email!]({{email}})'
+  items:
+    visit:
+      question: 'Can I view the property before applying?'
+      answer: 'Viewings will be arranged for a shortlist of complete applications. Please send us your application by email to be considered.'
+    criteria:
+      question: 'How are applications selected?'
+      answer: 'We are looking for reliable tenants with a stable income sufficient to cover the rent. A guarantor may be requested depending on the strength of the application.'
+    availability:
+      question: 'Is the home available immediately?'
+      answer: 'The home will be available from April 2026. We are accepting applications now so that future tenants can prepare their file in advance.'
+    agency:
+      question: 'Are there any agency fees?'
+      answer: 'No, there are no agency fees. You can apply directly by sending your complete application by email.'
+    furnished:
+      question: 'Is the home furnished?'
+      answer: 'Yes, the home is fully furnished and equipped, ready to welcome its future tenants.'
+    parking:
+      question: 'Is a parking space included?'
+      answer: 'Yes, a parking space is included with the home, for extra convenience.'
+    deposit:
+      question: 'How much is the security deposit?'
+      answer: 'The security deposit is two months’ rent excluding charges, in line with the rules for furnished rentals. It is due when the lease is signed.'
+    charges:
+      question: 'Are charges included in the rent?'
+      answer: 'Yes, the €1,500 rent includes charges. It is a monthly advance covering the building’s service charges. An annual adjustment may be made if needed.'
+    lease:
+      question: 'How long is the lease?'
+      answer: 'The furnished lease runs for one year and renews automatically. Termination follows the regulations in force.'
+    insurance:
+      question: 'Is home insurance compulsory?'
+      answer: 'Yes, home insurance covering at least tenant liability is compulsory. A certificate must be provided when moving in.'
+
+footer:
+  name: 'Furnished duplex'
+  pitch: 'A furnished 66.5 m² garden-level duplex in the Évidence residence, Simone Veil eco-district, Meudon-la-Forêt.'
+  listingTitle: 'The home'
+  contactTitle: 'Contact'
+  emailLabel: 'Write by email'
+  place: 'Meudon-la-Forêt 92360'
+  linksTitle: 'Links'
+  servicePublic: 'Rental application (service-public.fr)'
+  footnote: '© 2026 Furnished duplex · Meudon-la-Forêt'

@@ -1,0 +1,251 @@
+pageTitle: 'Duplex meublé 66,5 m²'
+
+nav:
+  brand: 'Meudon-la-Forêt'
+  menuLabel: 'Ouvrir le menu'
+  apply: 'Postuler'
+  anchors:
+    caracteristiques: 'Caractéristiques'
+    prix: 'Détail du prix'
+    photos: 'Photos'
+    plan: 'Plan & Surface'
+    carte: 'Carte'
+    candidature: 'Visite & Candidature'
+    faq: 'FAQ'
+
+intro:
+  chips:
+    rental: 'Location'
+    type: 'Appartement'
+    furnished: 'Meublé'
+    available: 'Disponible avril 2026'
+  title: 'Duplex meublé'
+  subtitle: '3 Pièces, 66 m² · Meudon 92360 · Quartier Meudon-la-Forêt'
+  priceLabel: 'Loyer mensuel'
+  price: '1 500 €'
+  priceNote: 'charges incluses – provision sur charges'
+  imageAlt: 'Séjour lumineux avec coin repas et baie vitrée donnant sur le jardin'
+
+facts:
+  surface:
+    label: 'Surface habitable'
+    value: '66,5 m²'
+  rooms:
+    label: 'Pièces'
+    value: '3'
+  bedrooms:
+    label: 'Chambres'
+    value: '2'
+  bathrooms:
+    label: 'Salles de bain'
+    value: '2'
+  parking:
+    label: 'Places de parking'
+    value: '1'
+  built:
+    label: 'Année de construction'
+    value: '2020'
+  energy:
+    label: 'Classe énergie / GES'
+    value: 'A / B'
+  floor:
+    label: 'Situation'
+    value: 'Rez-de-jardin'
+
+duplex:
+  tagline: 'Le logement'
+  title: "L'appartement"
+  subtitle: 'Appartement meublé - Duplex 66,5 m² - Meudon-la-Forêt (Écoquartier Simone Veil)'
+  body: './description.fr.md'
+  cta:
+    title: 'Ce duplex vous intéresse ?'
+    subtitle: 'Envoyez un dossier complet par email. Une sélection des dossiers sera effectuée avant les visites.'
+    send: 'Envoyer mon dossier'
+    ask: 'Poser une question'
+
+details:
+  tagline: 'En détail'
+  title: 'Les informations clés'
+  items:
+    type:
+      label: 'Type de bien'
+      value: 'Appartement'
+    furnished:
+      label: 'Ce bien est'
+      value: 'Meublé'
+    available:
+      label: 'Disponible à partir de'
+      value: 'Avril 2026'
+    charges:
+      label: 'Charges incluses'
+      value: 'Oui'
+    heatingType:
+      label: 'Type de chauffage'
+      value: 'Collectif'
+    heatingMode:
+      label: 'Mode de chauffage'
+      value: 'Gaz'
+    exposure:
+      label: 'Exposition'
+      value: 'Nord'
+    outdoor:
+      label: 'Extérieur'
+      value: 'Terrasse'
+    floor:
+      label: 'Étage du bien'
+      value: '0'
+    floors:
+      label: "Nombre d'étages dans l'immeuble"
+      value: '9'
+    lift:
+      label: 'Ascenseur'
+      value: 'Oui'
+    features:
+      label: 'Caractéristiques'
+      value: 'Construction récente, Plusieurs toilettes, Cuisine équipée, Cuisine ouverte, Baignoire, Interphone, Avec garage ou place de parking'
+
+price:
+  tagline: 'Budget'
+  title: 'Détail du prix'
+  monthly:
+    title: 'Par mois'
+    rows:
+      rent:
+        label: 'Loyer hors charges'
+        note: 'Loyer de base'
+        amount: '1 330 € / mois'
+      charges:
+        label: 'Charges locatives'
+        note: 'Provision sur charges'
+        amount: '170 € / mois'
+      total:
+        label: 'Loyer (charges comprises)'
+        note: 'Montant mensuel à régler'
+        amount: '1 500 € par mois'
+  other:
+    title: 'Autres frais'
+    rows:
+      deposit:
+        label: 'Dépôt de garantie'
+        note: 'Deux mois de loyer hors charges'
+        amount: '2 660 €'
+      agency:
+        label: "Frais d'agence"
+        note: 'Location directe, sans agence'
+        amount: '0 €'
+
+photos:
+  tagline: 'Visite en images'
+  title: 'Photos'
+  tabs:
+    living:
+      label: 'Séjour, cuisine & rangements'
+      slides:
+        rdc_cuisine: 'Cuisine américaine équipée'
+        rdc_salon: 'Séjour lumineux avec accès direct à la terrasse et au jardin'
+        rdc_rangement: 'Rangements du rez-de-chaussée'
+    bedrooms:
+      label: 'Chambres'
+      slides:
+        etg_chprincipale_1: "Chambre principale de l'étage"
+        etg_chprincipale_2: "Chambre principale de l'étage (vue 2)"
+        etg_chprincipale_vue: "Vue sur le jardin depuis la chambre principale de l'étage"
+        etg_chenfant_1: "Chambre de l'étage avec lit superposé"
+        etg_chenfant_2: "Chambre de l'étage avec lit superposé (vue 2)"
+        etg_chenfant_vue: "Vue sur le jardin depuis la chambre de l'étage avec lit superposé"
+    bathrooms:
+      label: 'Salles de bain & buanderie'
+      slides:
+        rdc_salledebain: "Salle d'eau avec douche à l'italienne du rez-de-chaussée"
+        etg_salledebain: "Salle de bain avec baignoire de l'étage"
+        etg_wc: "WC de l'étage"
+        etg_bouanderie: "Buanderie de l'étage"
+
+plan:
+  tagline: 'Agencement'
+  title: 'Plan & Surface'
+  ground:
+    title: 'Rez-de-chaussée'
+    alt: "Plan de l'appartement - Rez-de-chaussée"
+  upper:
+    title: 'Étage'
+    alt: "Plan de l'appartement - Étage"
+
+map:
+  tagline: 'Quartier'
+  title: 'Carte'
+  intro: "Situé dans l'écoquartier de la Place Simone Veil à Meudon-la-Forêt, au sein de la résidence récente Évidence, ce duplex meublé de 66,5 m² en rez-de-jardin offre un cadre de vie moderne, calme et très fonctionnel."
+  mapTitle: 'Carte du quartier de Meudon-la-Forêt'
+  markerTitle: 'Résidence Évidence'
+  nearbyTitle: 'À proximité'
+  nearby:
+    shops:
+      title: "Commerces au pied de l'immeuble"
+      content: 'Mini-super (Super U), boulangerie, centre sportif UPCA'
+    green:
+      title: 'Espaces verts à proximité'
+      content: 'Forêt Domaniale Meudon'
+    transport:
+      title: 'Transports en commun'
+      content: 'Tramway Ligne 6 (Meudon-la-Forêt, Georges Millandy), lignes de bus (179, 291)'
+    walk:
+      title: 'À pied'
+      content: 'IKEA Velizy, centre commercial Vélizy 2, écoles, crèches'
+
+apply:
+  tagline: 'Candidature'
+  title: 'Visite & Candidature'
+  body: |
+    Merci [d'envoyer un dossier complet par email]({{email}}) (pièce d'identité, justificatifs de ressources et de situation professionnelle).\
+    Une sélection des dossiers sera effectuée avant l'organisation d'une première ronde de visites.
+
+    **Un garant pourra être demandé selon la solidité du dossier.**
+
+    Pour constituer un dossier complet, veuillez vous référer aux informations disponibles sur [service-public.fr — Dossier de location (section Locataire)](https://www.service-public.fr/particuliers/vosdroits/F1169).
+
+faq:
+  tagline: 'Questions fréquentes'
+  title: 'FAQ'
+  intro: "Des questions supplémentaires ? [N'hésitez pas à nous contacter par email !]({{email}})"
+  items:
+    visit:
+      question: 'Puis-je visiter le bien avant de postuler ?'
+      answer: 'Des visites seront organisées pour une sélection de dossiers complets. Merci de nous envoyer votre dossier de candidature par email pour être considéré.e.'
+    criteria:
+      question: 'Quels sont les critères de sélection des dossiers ?'
+      answer: 'Nous recherchons des locataires sérieux, avec des ressources stables et suffisantes pour couvrir le loyer. Un garant pourra être demandé selon la solidité du dossier.'
+    availability:
+      question: 'Le logement est-il disponible immédiatement ?'
+      answer: "Le logement sera disponible à partir d'avril 2026. Nous acceptons les candidatures dès maintenant pour permettre aux futurs locataires de préparer leur dossier en amont."
+    agency:
+      question: "Y a-t-il des frais d'agence ?"
+      answer: "Non, il n'y a pas de frais d'agence. Vous pouvez postuler directement en envoyant votre dossier complet par email."
+    furnished:
+      question: 'Le logement est-il meublé ?'
+      answer: 'Oui, le logement est entièrement meublé et équipé, prêt à accueillir ses futurs locataires.'
+    parking:
+      question: 'Y a-t-il une place de parking incluse ?'
+      answer: 'Oui, une place de parking est incluse avec le logement, offrant un confort supplémentaire pour les locataires.'
+    deposit:
+      question: 'Quel est le montant du dépôt de garantie ?'
+      answer: 'Le dépôt de garantie est de deux mois de loyer hors charges, conformément à la réglementation pour les locations meublées. Il est dû à la signature du bail.'
+    charges:
+      question: 'Les charges sont-elles incluses dans le loyer ?'
+      answer: "Oui, le loyer de 1500 € est charges comprises. Il s'agit d'une provision mensuelle couvrant les charges de copropriété. Une régularisation annuelle peut être effectuée si nécessaire."
+    lease:
+      question: 'Quelle est la durée du bail pour ce logement ?'
+      answer: "Le bail meublé est conclu pour une durée d'un an, renouvelable automatiquement. Les conditions de résiliation suivent la réglementation en vigueur."
+    insurance:
+      question: "L'assurance habitation est-elle obligatoire ?"
+      answer: 'Oui, une assurance habitation couvrant au minimum les risques locatifs est obligatoire. Une attestation devra être fournie à l’entrée dans les lieux.'
+
+footer:
+  name: 'Duplex meublé'
+  pitch: 'Duplex meublé de 66,5 m² en rez-de-jardin, dans la résidence Évidence de l’écoquartier Simone Veil à Meudon-la-Forêt.'
+  listingTitle: 'Le logement'
+  contactTitle: 'Contact'
+  emailLabel: 'Écrire par email'
+  place: 'Meudon-la-Forêt 92360'
+  linksTitle: 'Liens'
+  servicePublic: 'Dossier de location (service-public.fr)'
+  footnote: '© 2026 Duplex meublé · Meudon-la-Forêt'

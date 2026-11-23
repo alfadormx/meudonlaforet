@@ -1,0 +1,494 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import CallToAction from '@alfadormx/blocks/composite/CallToAction.astro';
+import Content from '@alfadormx/blocks/composite/Content.astro';
+import ContentCarousel from '@alfadormx/blocks/composite/ContentCarousel.astro';
+import Item from '@alfadormx/blocks/composite/Item.astro';
+import ItemsGrid from '@alfadormx/blocks/composite/ItemsGrid.astro';
+import Tabs from '@alfadormx/blocks/composite/Tabs.astro';
+import Container from '@alfadormx/blocks/layout/Container.astro';
+import TwoColumnContainer from '@alfadormx/blocks/layout/TwoColumnContainer.astro';
+import Accordion from '@alfadormx/blocks/primitives/Accordion.astro';
+import Button from '@alfadormx/blocks/primitives/Button.astro';
+import ContentCarouselItem from '@alfadormx/blocks/primitives/ContentCarouselItem.astro';
+import Headline from '@alfadormx/blocks/primitives/Headline.astro';
+import Image from '@alfadormx/blocks/primitives/Image.astro';
+import MapBlock from '@alfadormx/blocks/primitives/Map.astro';
+import type { ButtonProps } from '@alfadormx/blocks/types/button';
+import type { ItemProps } from '@alfadormx/blocks/types/item';
+import { renderRichText } from '@alfadormx/blocks/utils/richText';
+import { localizedPaths, useCopy } from '@alfadormx/blocks/copy';
+import {
+  CARD,
+  CHIP,
+  CONTACT_ACTION,
+  GEO,
+  ICON_TILE,
+  LABEL,
+  PILL,
+  PRICE_AMOUNT_ITEM,
+  PRICE_LABEL_ITEM,
+  PRICE_ROW,
+  SECTION_HEADLINE,
+  TAGLINE,
+  withEmail,
+} from '~/site';
+
+export const getStaticPaths = () => localizedPaths();
+
+type Props = { langCode: string; basePath: string };
+
+const { langCode, copy: c } = useCopy(Astro, 'listing');
+
+type Labelled = { label: string; value: string };
+
+const FACT_ICONS: Record<keyof typeof c.facts, string> = {
+  surface: 'tabler:ruler-measure',
+  rooms: 'tabler:door',
+  bedrooms: 'tabler:bed',
+  bathrooms: 'tabler:bath',
+  parking: 'tabler:car',
+  built: 'tabler:calendar-event',
+  energy: 'tabler:bolt',
+  floor: 'tabler:trees',
+};
+
+const DETAIL_ICONS: Record<keyof typeof c.details.items, string> = {
+  type: 'tabler:building',
+  furnished: 'tabler:armchair',
+  available: 'tabler:calendar-plus',
+  charges: 'tabler:receipt',
+  heatingType: 'tabler:building-community',
+  heatingMode: 'tabler:flame',
+  exposure: 'tabler:compass',
+  outdoor: 'tabler:plant-2',
+  floor: 'tabler:stairs',
+  floors: 'tabler:building-skyscraper',
+  lift: 'tabler:elevator',
+  features: 'tabler:list-check',
+};
+
+const PRICE_ICONS: Record<string, string> = {
+  rent: 'tabler:home',
+  charges: 'tabler:receipt',
+  total: 'tabler:wallet',
+  deposit: 'tabler:pig-money',
+  agency: 'tabler:coin-off',
+};
+
+const NEARBY_ICONS: Record<keyof typeof c.map.nearby, string> = {
+  shops: 'tabler:building-store',
+  green: 'tabler:trees',
+  transport: 'tabler:bus',
+  walk: 'tabler:walk',
+};
+
+function labelled<K extends string>(
+  entries: Record<K, Labelled>,
+  icons: Record<K, string>
+): ItemProps[] {
+  return (Object.entries(entries) as [K, Labelled][]).map(([key, entry]) => ({
+    icon: { name: icons[key] },
+    title: entry.label,
+    content: entry.value,
+  }));
+}
+
+const facts = labelled(c.facts, FACT_ICONS);
+const details = labelled(c.details.items, DETAIL_ICONS);
+
+const nearby: ItemProps[] = Object.entries(c.map.nearby).map(([key, entry]) => ({
+  icon: { name: NEARBY_ICONS[key as keyof typeof NEARBY_ICONS] },
+  title: entry.title,
+  content: entry.content,
+}));
+
+const priceCards = [c.price.monthly, c.price.other].map((card) => ({
+  title: card.title,
+  rows: Object.entries(card.rows).map(([key, row]) => ({ key, ...row })),
+}));
+
+const photoTabs = Object.values(c.photos.tabs).map((tab) => ({
+  label: tab.label,
+  slides: Object.entries(tab.slides).map(([file, caption]) => ({
+    src: `~/assets/images/${file}.jpg`,
+    caption,
+  })),
+}));
+
+const faq = Object.values(c.faq.items).map((item) => ({
+  title: item.question,
+  content: item.answer,
+}));
+
+const chips: ButtonProps[] = [
+  { ...CHIP, label: c.intro.chips.rental, variant: 'solid', intent: 'primary' },
+  { ...CHIP, label: c.intro.chips.type, variant: 'outline', intent: 'neutral' },
+  { ...CHIP, label: c.intro.chips.furnished, variant: 'outline', intent: 'neutral' },
+  {
+    ...CHIP,
+    label: c.intro.chips.available,
+    variant: 'ghost',
+    intent: 'secondary',
+    icon: { name: 'tabler:calendar-plus' },
+  },
+];
+---
+
+<Layout langCode={langCode} metadata={{ title: { default: c.pageTitle } }}>
+  <Container spacing={{ padding: 'pb-8 md:pb-10 lg:pb-12' }}>
+    <TwoColumnContainer
+      htmlTag="div"
+      responsive
+      ratio="2:1"
+      gap="normal"
+      content={{ air: 'none', class: 'items-start' }}
+    >
+      <div slot="left" class="space-y-5">
+        <div class="flex flex-wrap gap-2">
+          {chips.map((chip) => (
+            <Button {...chip} />
+          ))}
+        </div>
+        <Headline
+          htmlTag="h1"
+          title={c.intro.title}
+          subtitle={c.intro.subtitle}
+          class="my-0 space-y-3"
+          titleClass="text-5xl md:text-7xl leading-[1.05] tracking-tight mb-0"
+          subtitleClass="text-lg text-muted"
+        />
+      </div>
+      <Headline
+        slot="right"
+        align="right"
+        tagline={c.intro.priceLabel}
+        title={c.intro.price}
+        subtitle={c.intro.priceNote}
+        class="my-0 space-y-1 md:pt-12 max-md:text-left"
+        taglineClass={LABEL}
+        titleClass="text-5xl md:text-6xl text-primary tracking-tight mb-0"
+        subtitleClass="text-sm text-muted"
+      />
+    </TwoColumnContainer>
+  </Container>
+
+  <Container htmlTag="div" spacing={{ padding: 'py-0 md:py-0 lg:py-0' }}>
+    <Image
+      src="~/assets/images/rdc_salon.jpg"
+      alt={c.intro.imageAlt}
+      layout="responsive"
+      aspectRatio={16 / 9}
+      widths={[640, 1024, 1440, 1920]}
+      sizes="(min-width: 1280px) 1280px, 100vw"
+      loading="eager"
+      fetchpriority="high"
+      class="w-full rounded-lg md:rounded-xl object-cover shadow-sm"
+    />
+  </Container>
+
+  <Container spacing={{ padding: 'pb-0 md:pb-0 lg:pb-0' }}>
+    <ItemsGrid
+      columns={4}
+      gap="none"
+      items={facts}
+      class={`${CARD} grid-cols-2 @3xl:grid-cols-4 overflow-hidden`}
+      defaultItemConfig={{
+        orientation: 'vertical',
+        class: 'items-start text-left gap-3 p-4 md:p-6 border-b border-r border-border',
+        contentClass: 'items-start text-left',
+        mediaClass: 'size-6',
+        icon: { class: 'self-start text-primary' },
+        titleClass: `${LABEL} mb-1`,
+        textClass: 'font-title text-xl md:text-2xl text-emphasis mb-0',
+      }}
+    />
+  </Container>
+
+  <Container>
+    <TwoColumnContainer
+      htmlTag="div"
+      responsive
+      breakpoint="lg:"
+      ratio="2:1"
+      gap="loose"
+      content={{ air: 'none' }}
+      rightColumn={{ class: 'lg:sticky lg:top-24 self-start' }}
+    >
+      <div slot="left">
+        <Headline
+          {...SECTION_HEADLINE}
+          anchorId="caracteristiques"
+          tagline={c.duplex.tagline}
+          title={c.duplex.title}
+          subtitle={c.duplex.subtitle}
+        />
+        <div class="prose max-w-none text-normal prose-headings:font-title prose-headings:font-normal prose-headings:text-emphasis prose-strong:text-emphasis prose-li:marker:text-primary">
+          <Fragment set:html={renderRichText(c.duplex.body)} />
+        </div>
+      </div>
+      <CallToAction
+        slot="right"
+        container={{
+          htmlTag: 'aside',
+          content: { air: 'none', boxWidth: 'w-full', class: `${CARD} p-6 shadow-md` },
+          spacing: { padding: 'p-0 md:p-0 lg:p-0' },
+        }}
+        headline={{
+          title: c.duplex.cta.title,
+          subtitle: c.duplex.cta.subtitle,
+          htmlTag: 'h3',
+          class: 'mt-0 mb-6 space-y-3',
+          titleClass: 'text-2xl leading-snug mb-0',
+          subtitleClass: 'text-sm text-muted',
+        }}
+        actionsClass="flex-col md:flex-col gap-3 mb-0"
+        defaultActionConfig={{ ...PILL, ...CONTACT_ACTION, width: 'full' }}
+        actions={[
+          { label: c.duplex.cta.send, icon: { name: 'tabler:send' } },
+          {
+            label: c.duplex.cta.ask,
+            variant: 'outline',
+            intent: 'neutral',
+            icon: { name: 'tabler:message-circle' },
+          },
+        ]}
+      />
+    </TwoColumnContainer>
+  </Container>
+
+  <Container class="bg-surface border-y border-border">
+    <Headline {...SECTION_HEADLINE} tagline={c.details.tagline} title={c.details.title} />
+    <ItemsGrid
+      columns={3}
+      gap="normal"
+      items={details}
+      defaultItemConfig={{
+        orientation: 'horizontal',
+        class: `${CARD} bg-background shadow-none p-5 items-start gap-4`,
+        mediaClass: 'size-10',
+        icon: { class: ICON_TILE },
+        titleClass: `${LABEL} mb-1`,
+        textClass: 'text-[1rem] font-medium text-emphasis mb-0',
+      }}
+    />
+  </Container>
+
+  <Container>
+    <Headline
+      {...SECTION_HEADLINE}
+      anchorId="prix"
+      tagline={c.price.tagline}
+      title={c.price.title}
+    />
+    <TwoColumnContainer htmlTag="div" responsive gap="normal" content={{ air: 'none' }}>
+      {priceCards.map((card, index) => (
+        <div slot={index === 0 ? 'left' : 'right'} class={`${CARD} rounded-xl p-6 md:p-8 h-full`}>
+          <Headline
+            title={card.title}
+            htmlTag="h3"
+            class="mt-0 mb-2"
+            titleClass={`${TAGLINE} font-body`}
+          />
+          {card.rows.map((row) => (
+            <Container
+              htmlTag="div"
+              content={{ air: 'none', widthType: 'full' }}
+              spacing={{ padding: 'p-0 md:p-0 lg:p-0' }}
+              layout={{ type: 'flex', class: PRICE_ROW }}
+            >
+              <Item
+                {...PRICE_LABEL_ITEM}
+                icon={{ ...PRICE_LABEL_ITEM.icon, name: PRICE_ICONS[row.key] }}
+                title={row.label}
+                content={row.note}
+              />
+              <Item
+                {...PRICE_AMOUNT_ITEM}
+                title={row.amount}
+                titleClass={
+                  row.key === 'total'
+                    ? 'font-title text-xl md:text-2xl text-primary whitespace-nowrap mb-0'
+                    : PRICE_AMOUNT_ITEM.titleClass
+                }
+              />
+            </Container>
+          ))}
+        </div>
+      ))}
+    </TwoColumnContainer>
+  </Container>
+
+  <Container class="bg-surface border-y border-border">
+    <Headline
+      {...SECTION_HEADLINE}
+      anchorId="photos"
+      tagline={c.photos.tagline}
+      title={c.photos.title}
+    />
+    <Tabs
+      items={photoTabs.map((tab) => ({ label: tab.label }))}
+      container={{
+        htmlTag: 'div',
+        content: { air: 'none' },
+        spacing: { padding: 'p-0 md:p-0 lg:p-0' },
+      }}
+      tabList={{ class: 'mb-6 flex-wrap gap-2' }}
+      defaultItemConfig={{ shape: 'pill', size: 'sm', variant: 'outline', intent: 'neutral' }}
+      activeItemConfig={{ variant: 'solid', intent: 'tertiary' }}
+    >
+      {photoTabs.map((tab, n) => (
+        <ContentCarousel slot={`panel-${n}`} loop controlsPosition="outside" ariaLabel={tab.label}>
+          {tab.slides.map((slide) => (
+            <ContentCarouselItem content={{ air: 'none' }} basis="basis-full md:basis-1/2">
+              <div class="relative w-full px-1.5">
+                <Image
+                  src={slide.src}
+                  alt={slide.caption}
+                  layout="responsive"
+                  aspectRatio={4 / 3}
+                  widths={[480, 800, 1200]}
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  class="w-full rounded-lg object-cover"
+                />
+                <p class="absolute bottom-3 left-4.5 m-0 rounded-full bg-background/90 px-3 py-1 text-sm text-normal">
+                  {slide.caption}
+                </p>
+              </div>
+            </ContentCarouselItem>
+          ))}
+        </ContentCarousel>
+      ))}
+    </Tabs>
+  </Container>
+
+  <Container>
+    <Headline {...SECTION_HEADLINE} anchorId="plan" tagline={c.plan.tagline} title={c.plan.title} />
+    <TwoColumnContainer htmlTag="div" responsive gap="normal" content={{ air: 'none' }}>
+      {[c.plan.ground, c.plan.upper].map((floor, index) => (
+        <Item
+          slot={index === 0 ? 'left' : 'right'}
+          image={{
+            src: `~/assets/images/${index === 0 ? 'rdc' : 'etg'}_plan.jpg`,
+            alt: floor.alt,
+            layout: 'responsive',
+            widths: [480, 800, 1200],
+            sizes: '(min-width: 768px) 50vw, 100vw',
+            class: 'w-full h-auto rounded-lg',
+          }}
+          title={floor.title}
+          class={`${CARD} p-6 gap-4`}
+          mediaClass="w-full"
+          titleTag="h3"
+          titleClass="font-title text-2xl font-normal mb-0"
+        />
+      ))}
+    </TwoColumnContainer>
+  </Container>
+
+  <Container class="bg-surface border-y border-border">
+    <Headline
+      {...SECTION_HEADLINE}
+      anchorId="carte"
+      tagline={c.map.tagline}
+      title={c.map.title}
+      subtitle={c.map.intro}
+    />
+    <div class={`${CARD} overflow-hidden isolate`}>
+      <MapBlock
+        lat={GEO.lat}
+        lon={GEO.lon}
+        zoom={17}
+        height="420px"
+        title={c.map.mapTitle}
+        markerTitle={c.map.markerTitle}
+      />
+    </div>
+    <Headline
+      title={c.map.nearbyTitle}
+      htmlTag="h3"
+      class="mt-12 mb-6"
+      titleClass="text-2xl mb-0"
+    />
+    <ItemsGrid
+      columns={4}
+      gap="normal"
+      items={nearby}
+      defaultItemConfig={{
+        orientation: 'horizontal',
+        class: 'items-start gap-4',
+        mediaClass: 'size-10',
+        icon: { class: ICON_TILE },
+        titleClass: 'text-[1rem] font-semibold text-emphasis mb-1',
+        textClass: 'text-sm text-muted mb-0',
+      }}
+    />
+  </Container>
+
+  <Content
+    headline={{ class: 'hidden' }}
+    image={{
+      src: '~/assets/images/rdc_salon.jpg',
+      alt: c.intro.imageAlt,
+      layout: 'responsive',
+      widths: [480, 800, 1200],
+      sizes: '(min-width: 768px) 50vw, 100vw',
+      class: 'w-full rounded-xl object-cover shadow-sm',
+    }}
+    twoColumnContainer={{ gap: 'loose', content: { class: 'items-center' } }}
+  >
+    <Headline
+      {...SECTION_HEADLINE}
+      anchorId="candidature"
+      tagline={c.apply.tagline}
+      title={c.apply.title}
+      class="mt-0 mb-6 space-y-3"
+    />
+    <div class="space-y-4 leading-relaxed text-normal">
+      <Fragment set:html={renderRichText(withEmail(c.apply.body))} />
+    </div>
+    <Button
+      {...PILL}
+      {...CONTACT_ACTION}
+      label={c.duplex.cta.send}
+      icon={{ name: 'tabler:send' }}
+      align="left"
+      class="mt-8 font-semibold px-6"
+    />
+  </Content>
+
+  <Container class="bg-surface border-t border-border">
+    <TwoColumnContainer
+      htmlTag="div"
+      responsive
+      breakpoint="lg:"
+      ratio="2:3"
+      gap="loose"
+      content={{ air: 'none' }}
+    >
+      <div slot="left">
+        <Headline
+          {...SECTION_HEADLINE}
+          anchorId="faq"
+          tagline={c.faq.tagline}
+          title={c.faq.title}
+        />
+        <div class="text-muted">
+          <Fragment set:html={renderRichText(withEmail(c.faq.intro))} />
+        </div>
+      </div>
+      <Accordion
+        slot="right"
+        mode="single"
+        items={faq}
+        icon={{ name: 'tabler:plus' }}
+        class="space-y-3"
+        itemClass={`${CARD} bg-background shadow-none`}
+        summaryClass="px-5 py-4"
+        titleClass="font-semibold text-emphasis"
+        contentClass="px-5 pb-5 text-muted leading-relaxed"
+        iconClass="text-primary"
+      />
+    </TwoColumnContainer>
+  </Container>
+</Layout>

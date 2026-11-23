@@ -1,0 +1,149 @@
+---
+import BaseLayout from '@alfadormx/blocks/Layout.astro';
+import Header from '@alfadormx/blocks/composite/Header.astro';
+import Footer from '@alfadormx/blocks/composite/Footer.astro';
+import ItemsGrid from '@alfadormx/blocks/composite/ItemsGrid.astro';
+import NavigationTree from '@alfadormx/blocks/composite/NavigationTree.astro';
+import Container from '@alfadormx/blocks/layout/Container.astro';
+import ModalBlock from '@alfadormx/blocks/layout/Modal.astro';
+import TwoColumnContainer from '@alfadormx/blocks/layout/TwoColumnContainer.astro';
+import Headline from '@alfadormx/blocks/primitives/Headline.astro';
+import LanguageToggle from '@alfadormx/blocks/primitives/LanguageToggle.astro';
+import type { MetaData } from '@alfadormx/blocks/types/metadata';
+import VercelAnalytics from '@vercel/analytics/astro';
+import { useCopy } from '@alfadormx/blocks/copy';
+import {
+  CONTACT_ACTION,
+  DARK_LINKS,
+  ON_DARK,
+  PILL,
+  SERVICE_PUBLIC_URL,
+  TAGLINE,
+  anchorNav,
+  emailLink,
+  homeUrl,
+} from '~/site';
+
+interface Props {
+  langCode: string;
+  metadata?: Partial<MetaData>;
+}
+
+const { langCode, metadata } = Astro.props;
+const { copy } = useCopy(Astro, 'listing');
+const { nav, footer } = copy;
+const anchors = anchorNav(nav);
+
+const footerColumns = [
+  {
+    title: footer.listingTitle,
+    content: anchors.map(({ label, href }) => `[${label}](${href})`).join('  \n'),
+  },
+  {
+    title: footer.contactTitle,
+    content: `${emailLink(footer.emailLabel)}  \n${footer.place}`,
+  },
+  {
+    title: footer.linksTitle,
+    content: `[${footer.servicePublic}](${SERVICE_PUBLIC_URL})`,
+  },
+];
+---
+
+<BaseLayout langCode={langCode} metadata={metadata}>
+  <VercelAnalytics />
+  <Header
+    isSticky
+    container={{
+      background: { class: 'bg-background/85 backdrop-blur border-b border-border' },
+      spacing: { padding: 'py-3 px-4 md:py-4 md:px-8 lg:px-12' },
+    }}
+    logo={{
+      href: homeUrl(langCode),
+      label: nav.brand,
+      labelClass: 'font-title text-2xl font-normal',
+      class: 'order-first text-emphasis',
+    }}
+    rightNavigationTreeHorizontal={{
+      items: anchors,
+      class: 'hidden xl:flex',
+      defaultItemConfig: { size: 'sm', class: 'font-medium text-normal hover:text-primary' },
+    }}
+    rightButtons={[
+      {
+        ...PILL,
+        ...CONTACT_ACTION,
+        label: nav.apply,
+        size: 'sm',
+        intent: 'tertiary',
+        class: 'font-semibold px-5',
+      },
+      {
+        'data-modal-trigger': 'listing-menu',
+        'aria-label': nav.menuLabel,
+        icon: { name: 'heroicons:bars-3' },
+        class: 'xl:hidden text-normal',
+      },
+    ]}
+  />
+  <ModalBlock
+    id="listing-menu"
+    position="right"
+    size="sm"
+    class="bg-background mx-0 h-full max-h-none rounded-none p-6 pt-16"
+  >
+    <NavigationTree
+      items={anchors}
+      defaultItemConfig={{ variant: 'link', size: 'lg', 'data-modal-close': '' }}
+    />
+    <LanguageToggle
+      class="mt-8 border-t border-border px-4 pt-6"
+      defaultButtonConfig={{ variant: 'link', size: 'lg', class: 'p-0 text-normal' }}
+      activeButtonConfig={{ class: 'font-semibold text-primary' }}
+    />
+  </ModalBlock>
+
+  <main>
+    <slot />
+  </main>
+
+  <Container
+    class={`bg-tertiary ${ON_DARK} ${DARK_LINKS}`}
+    spacing={{ padding: 'pb-0 md:pb-0 lg:pb-0' }}
+  >
+    <TwoColumnContainer htmlTag="div" responsive ratio="2:3" gap="loose" content={{ air: 'none' }}>
+      <div slot="left">
+        <Headline
+          title={footer.name}
+          subtitle={footer.pitch}
+          class="my-0 space-y-4"
+          titleClass={`text-3xl mb-0 ${ON_DARK}`}
+          subtitleClass={`text-[0.95rem] leading-relaxed opacity-75 max-w-sm ${ON_DARK}`}
+        />
+      </div>
+      <ItemsGrid
+        slot="right"
+        columns={3}
+        gap="loose"
+        class="@2xl:grid-cols-3"
+        items={footerColumns}
+        defaultItemConfig={{
+          orientation: 'horizontal',
+          titleClass: `${TAGLINE} text-accent mb-4`,
+          textClass: `text-sm leading-loose opacity-85 mb-0 ${ON_DARK}`,
+        }}
+      />
+    </TwoColumnContainer>
+  </Container>
+  <Footer
+    container={{
+      class: `bg-tertiary ${ON_DARK} ${DARK_LINKS}`,
+      spacing: { padding: 'px-4 md:px-8 lg:px-12 pt-0 md:pt-0 lg:pt-0 pb-6 md:pb-8 lg:pb-8' },
+    }}
+    logo={{ label: '' }}
+    footnote={footer.footnote}
+    footnoteClass={`mr-0 w-full border-t border-background/15 pt-6 text-sm opacity-70 ${ON_DARK}`}
+    languageToggle={{ defaultButtonConfig: { size: 'sm', class: ON_DARK } }}
+    languageToggleAlign="left"
+  />
+</BaseLayout>

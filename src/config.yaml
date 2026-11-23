@@ -1,0 +1,69 @@
+site:
+  name: 'Duplex meublé 66,5 m² - Meudon-la-Forêt'
+  site: 'https://meudon.alfador.mx'
+  base: '/'
+  trailingSlash: false
+
+i18n:
+  default: 'fr'
+  languages:
+    - code: 'fr'
+      locale: 'fr-FR'
+      basePath: '/'
+      direction: 'ltr'
+      label: 'Français'
+    - code: 'en'
+      locale: 'en-GB'
+      basePath: '/en'
+      direction: 'ltr'
+      label: 'English'
+
+metadata:
+  title:
+    default: 'Duplex meublé 66,5 m²'
+    template: '%s | Meudon-la-Forêt'
+  description: 'Duplex meublé 66,5 m² — 2 chambres, 2 salles de bain, jardin, parking — Loyer 1500 €/mois CC.'
+  author: 'alfadormx'
+  keywords:
+    [
+      'duplex meublé',
+      '66,5 m²',
+      'Meudon-la-Forêt',
+      'Écoquartier Simone Veil',
+      '2 chambres',
+      '2 salles de bain',
+      'rez-de-jardin',
+      'parking inclus',
+      'location meublée',
+      'DPE A',
+      'Vélizy 2',
+    ]
+  charset: 'UTF-8'
+  robots:
+    index: true
+    follow: true
+
+  theme:
+    color: '#FDFBF7'
+    colorScheme: 'only light'
+
+  icons:
+    favicon: '/favicon.svg'
+
+  openGraph:
+    site_name: 'Duplex meublé 66,5 m² - Meudon-la-Forêt'
+    locale: 'fr_FR'
+    localeAlternate: ['en_GB']
+    type: 'website'
+    description: 'Duplex meublé 66,5 m² — 2 chambres, 2 salles de bain, jardin, parking — Loyer 1500 €/mois CC.'
+
+  localized:
+    en:
+      title:
+        default: 'Furnished duplex 66.5 m²'
+        template: '%s | Meudon-la-Forêt'
+      description: 'Furnished 66.5 m² duplex — 2 bedrooms, 2 bathrooms, garden, parking — €1,500/month including charges.'
+      openGraph:
+        locale: 'en_GB'
+        localeAlternate: ['fr_FR']
+        description: 'Furnished 66.5 m² duplex — 2 bedrooms, 2 bathrooms, garden, parking — €1,500/month including charges.'

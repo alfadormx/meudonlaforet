@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300..700&display=swap');
+
+@import '@alfadormx/blocks/blocks.css';
+
+/* Warm cream page, white cards, stone neutrals and a terracotta primary.
+   Tertiary is the stone-900 band behind the footer. Light only: no dark overrides. */
+@theme {
+  --font-title: 'DM Serif Display', Georgia, serif;
+  --font-subtitle: 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --font-quote: 'DM Serif Display', Georgia, serif;
+
+  --color-background: #fdfbf7;
+  --color-surface: #ffffff;
+  --color-elevated: #fafaf9;
+  --color-normal: #2d2d2d;
+  --color-muted: #78716c;
+  --color-emphasis: #1c1917;
+  --color-border: #e7e5e4;
+  --color-border-emphasis: #d6d3d1;
+
+  --color-primary: #c87a5e;
+  --color-primary-hover: #b0664b;
+  --color-secondary: #8a9a86;
+  --color-secondary-hover: #76866f;
+  --color-accent: #d9a05b;
+  --color-accent-hover: #c68b45;
+  --color-tertiary: #1c1917;
+  --color-tertiary-hover: #292524;
+  --color-interactive: var(--color-primary);
+  --color-interactive-hover: var(--color-primary-hover);
+  --color-link: var(--color-primary);
+  --color-link-hover: var(--color-primary-hover);
+
+  --radius-md: 0.75rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 2.5rem;
+}
+
+::selection {
+  background-color: color-mix(in srgb, var(--color-primary) 25%, var(--color-background));
+}
