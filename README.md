@@ -59,15 +59,13 @@ There is no public address yet, so `EMAIL_HREF` in `src/site.ts` is `'#'`. While
 The library is installed from a git tag:
 
 ```json
-"@alfadormx/blocks": "github:alfadormx/astro.blocks#v0.1.1&path:packages/blocks"
+"@alfadormx/blocks": "github:alfadormx/astro.blocks#v0.3.0&path:packages/blocks"
 ```
 
 Change the tag, run `pnpm install`, and read the library's `packages/blocks/CHANGELOG.md` for every version in between first.
 
 ## Known workarounds
 
-These cover gaps in `@alfadormx/blocks` v0.1.0 and can go once the library fixes them.
+These cover gaps in `@alfadormx/blocks` v0.3.0 and can go once the library fixes them.
 
-- `astro.config.mjs` pre-bundles Leaflet (`optimizeDeps.include`) so the `Map` block works in `pnpm dev`; the production build does not need it.
 - The mobile menu sets `bg-background` on the `Modal`, whose default panel colour ignores the theme tokens.
-- The `Footer` gets explicit `footnoteClass` and spacing, since its defaults use an undefined `text-subtle` colour and a right margin.
